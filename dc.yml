@@ -2,6 +2,8 @@ apiVersion: v1
 kind: DeploymentConfig
 metadata:
   name: node-web-app
+  labels:
+    app: node-web-app
 spec:
   replicas: 2
   selector:
@@ -12,7 +14,7 @@ spec:
         app: node-web-app
     spec:
       containers:
-      - image: docker-registry.default.svc:5000/myproj1/node-web-app
+      - image: docker-registry.default.svc:5000/myproj1/node-web-app:latest
         imagePullPolicy: Always
         name: node-web-app
       dnsPolicy: ClusterFirst
